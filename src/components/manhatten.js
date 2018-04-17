@@ -188,14 +188,12 @@ var Tile = function(x, y, w, h) {
   }
 
   this.roundLayout = function() {
-    console.log("roundLayout", rect)
     rect = {
-      w: Math.round(rect.w) + 50,
+      w: Math.round(rect.w),
       h: Math.round(rect.h),
-      x: Math.round(rect.x) - 50,
+      x: Math.round(rect.x),
       y: Math.round(rect.y)
     }
-    console.log("roundLayout 2", rect)
   }
 
   this.saveLayout = function(name, t) {

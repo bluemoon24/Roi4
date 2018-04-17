@@ -88,7 +88,7 @@
 export default {
   name: 'App',
   created: function () {
-    // console.log = function () {}
+    console.log = function () {}
   },
   data () {
     return {
