@@ -52,21 +52,14 @@
           { temp: 59, month: 'April' },
           { temp: 70, month: 'May' },
           { temp: 80, month: 'June' },
-          { temp: 88, month: 'July' },
-          { temp: 83, month: 'August' },
-          { temp: 76, month: 'September' },
-          { temp: 64, month: 'October' },
           { temp: 49, month: 'November' },
           { temp: 37, month: 'December' }
         ]
       },
+
       series2: {
         type: 'bullet',
         data: [
-          { temp: 22, month: 'January' },
-          { temp: 18, month: 'February' },
-          { temp: 27, month: 'March' },
-          { temp: 45, month: 'April' },
           { temp: 20, month: 'May' },
           { temp: 10, month: 'June' },
           { temp: 72, month: 'July' },
@@ -74,18 +67,39 @@
           { temp: 36, month: 'September' },
           { temp: 64, month: 'October' },
           { temp: 30, month: 'November' },
-          { temp: 37, month: 'December' },
+          { temp: 37, month: 'December' }
         ],
       },
+
       series3: {
         type: 'inset',
         data: [
           { temp: 20, month: 'April' },
           { temp: 55, month: 'May' },
           { temp: 70, month: 'September' },
-          { temp: 20, month: 'November' },
+          { temp: 20, month: 'November' }
         ]
       },
+
+      series4: {
+        type: 'candlestick',
+        data: [
+          { temp: 88, month: 'July' },
+          { temp: 83, month: 'August' },
+          { temp: 76, month: 'September' },
+          { temp: 64, month: 'October' }
+        ]
+      },
+
+      series5: {
+        type: 'dot',
+        data: [
+          { temp: 22, month: 'January' },
+          { temp: 18, month: 'February' },
+          { temp: 27, month: 'March' },
+          { temp: 45, month: 'April' }
+        ]
+      }
     }),
 
     created: function () {
@@ -110,7 +124,7 @@
 
     computed: {
       series: function () {
-        return [this.series1, this.series2, this.series3]
+        return [this.series1, this.series2, this.series3, this.series4]
       }
     },
 
@@ -146,12 +160,6 @@
       //   //layout.delegate("initial", newPortlet);
       //   this.layout.updateLayout();
       // },
-
-      drawPortletx: function (tile, mode) {
-        console.log('drawPortlet new', tile, mode)
-        let plet = this.portlets.find(e => (e.content.id === content.id))
-        console.log('drawPortlet new plet', plet)
-      },
 
       drawPortlet: function (tile, mode) {
         if (tile.empty()) {
@@ -193,7 +201,7 @@
           // let pvm = new pnode()
           // console.log('Vue constructor', pvm)
 
-          plet.content.pnode.type = plet.content.type
+          // plet.content.pnode.type = plet.content.type
           plet.content.pnode.config = { orientation: plet.content.orientation }
           plet.content.pnode.series = plet.content.series
           // pvm.minHeight = 50
@@ -248,30 +256,12 @@
         newPortlet: function () {
           // var data = [ 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 ]
           var pid = "p" + (this.portlets.length + 1);
-
-          // var portlet = {
-          //   content : {
-          //     id : pid,
-          //     description : "this is portlet header of " + pid,
-          //     data : {
-          //       series : d3.shuffle(data),
-          //       categories : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
-          //     },
-          //     settings : {
-          //       willdraw : this.drawCharts,
-          //       constraints : {
-          //         minSize : [],
-          //         thresholds : [ {} ]
-          //       }
-          //     }
-          //   }
-          // }
           let ctype = ['barChart', 'dotChart', 'bulletChart']
           let orient = ['horizontal', 'vertical']
           let pnode = Vue.extend(Portlet)
           let portlet = {
             content: {
-              type: ctype[this.portlets.length % 3],
+              // type: ctype[this.portlets.length % 3],
               orientation: orient[this.portlets.length % 2],
               series: this.series,
               id: pid,

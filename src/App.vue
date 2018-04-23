@@ -88,7 +88,7 @@
 export default {
   name: 'App',
   created: function () {
-    console.log = function () {}
+    // console.log = function () {}
   },
   data () {
     return {
@@ -108,7 +108,7 @@ export default {
           to: 'barcharts'
         },
         {
-          icon: 'bubble_chart',
+          icon: 'view_module',
           title: 'Page',
           to: 'page'
         },

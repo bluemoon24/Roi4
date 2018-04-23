@@ -1,5 +1,5 @@
 <template>
-  <div ref="portlet" >
+  <div ref="portlet" style="margin-top: 60px;">
     <!-- {{ config }} -->
     <!-- Portlet rect: {{ portletRect }}, type: {{ type }},
     series: {{ series }}, <br/>
@@ -15,10 +15,6 @@
   import roiCharts from '@/components/roi-charts'
   export default {
     props: {
-      type: {
-        type: String,
-        default: 'barChart'
-      },
       series: {
         type: Array
       },
@@ -100,10 +96,12 @@
     },
 
     created: function () {
+      console.log ('portlet created')
     },
 
     mounted () {
-      console.log('***** mounted roi-chart component ******', this.$refs, this.series)
+      console.log('***** mounted roi-chart component ******', this.$refs)
+      console.log('... series:', this.series)
       this.chartContainer = this.$refs.chart
       this.chartContainer.style = 'height:' + (window.innerHeight * this.minHeight / 100) + 'px;'
       this.portletRect = this.$refs.portlet.getBoundingClientRect()
@@ -112,7 +110,7 @@
       console.log('***rect of chartContainer', this.d3sel)
       // this.onResize()
       // this.divSize = { x: window.innerWidth, y: window.innerHeight }
-      // this.renderChart()
+      this.renderChart()
       // let bulletChartContainer = document.querySelector('#bullet-chart');
     },
     methods: {
@@ -129,49 +127,10 @@
         this.chartConfig['width'] = this.divSize.x // total chart width
         this.chartConfig['height'] = this.divSize.y // total chart height
         this.chartConfig['container'] = this.$refs.chart
-        // console.log('renderChart', this.series)
-        // if (Array.isArray(this.series)) {
-        //   if (!this.series[0].data || !Array.isArray(this.series[0].data)) {
-        //     this.chartConfig['data'] = this.series // simple single series
-        //   } else {
-        //     for (var i = 0; i < this.series.length; i++) {
-        //       let stype = this.series[i].type || 'default'
-        //       console.log('Series of type', stype)
-        //       switch (stype) {
-        //         case 'default':
-        //           this.chartConfig['data'] = this.series[i].data
-        //           break
-        //         case 'inset':
-        //           this.chartConfig['insetData'] = this.series[i].data
-        //           break
-        //         case 'bullet':
-        //           this.chartConfig['bulletData'] = this.series[i].data
-        //           break
-        //         default:
-        //           console.log('Portlet: Unknown series type:', stype)
-        //       }
-        //       console.log('renderChart config', this.chartConfig)
-        //     }
-        //   }
-        // } else {
-        //   console.log('Portlet: Series must be array or array of series. got', typeof this.series, this.series)
-        //   return
-        // }
-        // this.chartConfig['orientation'] = this.orientation
         console.log('chartConfig', this.chartConfig)
         console.log('series', this.series)
         this.chartConfig['series'] = this.series
         return roiCharts.chart(this.chartConfig)
-        // switch (this.type) {
-        //   case 'barChart':
-        //
-        //   case 'dotChart':
-        //     return roiCharts.chart(this.chartConfig)
-        //   case 'bulletChart':
-        //     return roiCharts.chart(this.chartConfig)
-        //   default:
-        //   console.log('Portlet: unknown charttype:', this.type)
-        // }
       },
       onChartResize () {
         console.log('onChartResize', this.$refs.chart.clientWidth, this.$refs.chart.clientHeight)
