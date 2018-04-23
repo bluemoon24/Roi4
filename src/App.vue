@@ -104,8 +104,8 @@ export default {
         },
         {
           icon: 'insert_chart',
-          title: 'Barcharts',
-          to: 'barcharts'
+          title: 'Chart',
+          to: 'chart'
         },
         {
           icon: 'view_module',
