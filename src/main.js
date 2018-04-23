@@ -14,7 +14,7 @@ Vue.config.productionTip = false
 
 // router.hashbang = false
 // router.mode = 'history'
-router.base = '/roi4/'
+// router.base = '/roi4/'
 
 new Vue({
   router,
