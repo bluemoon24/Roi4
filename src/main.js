@@ -3,10 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
+// https://vuetifyjs.com/en/
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+// https://linusborg.github.io/portal-vue/#/
 import PortalVue from 'portal-vue'
-
 Vue.use(PortalVue)
 Vue.use(Vuetify)
 

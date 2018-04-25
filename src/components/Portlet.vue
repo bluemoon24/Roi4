@@ -62,11 +62,13 @@
       innerHeight: 100,
       portletRect: {},
       d3sel: {},
-      portletConfig: ['categoriesKey', 'valuesKey', 'categoriesLabel', 'valuesLabel', 'orientation'],
+      portletConfig: ['categoriesKey', 'valuesKey', 'categoriesLabel', 'valuesLabel', 'orientation', 'mergeSeriesCategories'],
       chartContainer: null,
       chartConfig:
         {
-          // barChart properties
+          // chart properties
+          mergeSeriesCategories: false,
+          // bars properties
           categoriesKey: 'month',
           valuesKey: 'temp',
           categoriesLabel: 'Month',
@@ -82,11 +84,15 @@
           dataLabelsMargin: 6,
           dataLabelsSize: 12,
           dataOuterPadding: 20,
-          // dotChart properties
+          // dots properties
           dotMaxDiameter: 10,
-          // bulletChart properties
+          // bullets properties
           bulletBarWidth: 12,
           bulletBarsColor: 'maroon',
+          // lines properties
+          noBreaks: false,
+          dashed: false,
+          undecorated: false
         },
     }),
 
@@ -120,7 +126,7 @@
             // console.log('copy conf', cf, this.portletConfig.some((e => e === cf)))
             if (this.portletConfig.some(e => e === cf) && this.config.hasOwnProperty(cf)) {
               this.chartConfig[cf] = this.config[cf]
-              // console.log('copy config', cf, this.config[cf], this.chartConfig[cf])
+              console.log('copy config', cf, this.config[cf], this.chartConfig[cf])
             }
           }
         }

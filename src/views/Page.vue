@@ -45,6 +45,7 @@
 
       series1: {
         // type: 'default' // intentionally left out
+
         data: [
           { temp: 32, month: 'January' },
           { temp: 38, month: 'February' },
@@ -94,10 +95,18 @@
       series5: {
         type: 'dot',
         data: [
-          { temp: 22, month: 'January' },
-          { temp: 18, month: 'February' },
-          { temp: 27, month: 'March' },
-          { temp: 45, month: 'April' }
+          { temp: 32, month: 'January' },
+          { temp: 38, month: 'February' },
+          { temp: 47, month: 'March' },
+          { temp: 59, month: 'April' },
+          { temp: 70, month: 'May' },
+          { temp: 80, month: 'June' },
+          { temp: 88, month: 'July' },
+          { temp: 83, month: 'August' },
+          { temp: 76, month: 'September' },
+          { temp: 64, month: 'October' },
+          { temp: 49, month: 'November' },
+          { temp: 37, month: 'December' }
         ]
       }
     }),

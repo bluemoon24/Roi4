@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Chart from './views/Chart.vue'
+import Data from './views/Data.vue'
 import Page from './views/Page.vue'
 
 Vue.use(Router)
@@ -18,6 +19,11 @@ export default new Router({
       path: '/chart',
       name: 'chart',
       component: Chart
+    },
+    {
+      path: '/data',
+      name: 'data',
+      component: Data
     },
     {
       path: '/page',
