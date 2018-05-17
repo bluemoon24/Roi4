@@ -3,7 +3,7 @@
     <v-layout row>
       <v-flex xs12>
       <portlet min-height=80 type='barChart'
-        :config="{orientation: 'vertical', mergeSeriesCategories: false, valuesKey: 'temp'}" :series="series" />
+        :config="{orientation: 'vertical', mergeSeriesCategories: false, valuesKey: 'humidity'}" :series="series" />
     </v-flex>
   </v-layout>
 </div>
@@ -18,6 +18,9 @@ export default {
     Portlet
   },
   computed: {
+    flexseries: function () {
+
+    },
     series: function () {
       return [
         this.series1,
@@ -68,6 +71,8 @@ export default {
     ],
     newseries: {
       units: {netsales: 'eur', volume: 'pce'},
+      valuesKeys: ['netsales', 'volume'],
+      categoriesKey: ['month', 'product'],
       data:[
         { month: 1, product: 'derma', netsales: 2000000, volume: 1200 },
         { month: 2, product: 'derma', netsales: 2020000, volume: 900 },
