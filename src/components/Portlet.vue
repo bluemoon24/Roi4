@@ -12,7 +12,7 @@
 
 <script>
   import * as d3 from 'd3'
-  import roiCharts from '@/components/roi-charts'
+  import roiCharts from 'roi-charts'
   export default {
     props: {
       series: {
